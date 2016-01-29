@@ -1,0 +1,44 @@
+---
+layout: home
+---
+
+<div id="home"><img class="feature" src="//www.gravatar.com/avatar/76cd576f38884a402fbf01d2f95a132b?s=400"><h2 id="oakland-university-cs-undergraduate">Oakland University CS Undergraduate</h2>
+<p>Welcome to my website. Not everthing on this site is completely finished,
+including the site itself. What follows is a list of things I've been
+working on. Some of them are well thought out, others not so much.
+I try to only post things that are somewhat complete thoughts here, but
+if you want to see some of my works in progress feel free to browse my github.
+Interesting technical note: all content is loaded from static markdown files.
+To view the markdown for any file, just remove the "#" from the URL. (index is
+at <a href="/index.md">/index.md</a>)</p>
+
+
+<ul>
+    <li><h4 id="identity">Identity</h4>
+        <ul>
+            <li><a href="https://twitter.com/dyladan">@dyladan</a></li>
+            <li><a href="https://github.com/dyladan">https://github.com/dyladan</a></li>
+            <li><a href="keybase.txt">Keybase Proof</a></li>
+            <li><a href="public.asc">My public key</a></li>
+        </ul>
+    </li>
+</ul>
+<ul>
+    <li><h4 id="always-be-coding">Always Be Coding</h4>
+    <ul>
+        {% for post in site.categories.abc %}
+            <li><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></li>
+        {% endfor %}
+    </ul>
+    </li>
+</ul>
+<ul>
+    <li><h4 id="playground">Playground</h4>
+    <ul>
+        {% for post in site.categories.playground %}
+            <li><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></li>
+        {% endfor %}
+    </ul>
+    </li>
+</ul>
+</div>
