@@ -4,60 +4,47 @@ https://keybase.io/dyladan
 
 I hereby claim:
 
-  * I am an admin of http://dyladan.me
+  * I am an admin of https://dyladan.me
   * I am dyladan (https://keybase.io/dyladan) on keybase.
-  * I have a public key with fingerprint 2A36 90C8 F5F0 E508 08A7  877E D774 AB25 D2FB 401B
+  * I have a public key ASCQJRskHagulIcF37NVYMsR_g_rZpBY3PmbSEtbbtFvSgo
 
 To do so, I am signing this object:
 
 {
     "body": {
         "key": {
-            "fingerprint": "2a3690c8f5f0e50808a7877ed774ab25d2fb401b",
+            "eldest_kid": "012090251b241da82e948705dfb35560cb11fe0feb669058dcf99b484b5b6ed16f4a0a",
             "host": "keybase.io",
-            "key_id": "d774ab25d2fb401b",
-            "kid": "01015cb8472fe72b64fe99960beadfb4361b8850472df702057e72c06151d1790be90a",
+            "kid": "012090251b241da82e948705dfb35560cb11fe0feb669058dcf99b484b5b6ed16f4a0a",
             "uid": "fe20f7bd1fae9f609d6b219f74ece400",
             "username": "dyladan"
         },
         "service": {
             "hostname": "dyladan.me",
-            "protocol": "http:"
+            "protocol": "https:"
         },
         "type": "web_service_binding",
         "version": 1
     },
-    "ctime": 1436982110,
-    "expire_in": 157680000,
-    "prev": "97e0858b06ac628a1fc6d589003b0c6fccd769e840e94cd95b8198aed6958fbb",
-    "seqno": 10,
+    "client": {
+        "name": "keybase.io go client",
+        "version": "1.0.9"
+    },
+    "ctime": 1454629239,
+    "expire_in": 504576000,
+    "merkle_root": {
+        "ctime": 1454629226,
+        "hash": "706d2e5e2386e2bc1f6f6aaa84d022bb3444fdab0ce9a9cad4f314fa21402abbe8845e0c8454ce442126d9b6e9f28f197d0386db24c49660f9a1c586673a321b",
+        "seqno": 362786
+    },
+    "prev": "2da7b371dedec4d9f97133ee035be0624733c9455270f8803bcbad7d8673e018",
+    "seqno": 22,
     "tag": "signature"
 }
 
 which yields the signature:
 
------BEGIN PGP MESSAGE-----
-Version: Keybase OpenPGP v2.0.20
-Comment: https://keybase.io/crypto
-
-yMIYAnicbZJbSBRRGIBH3S4uLBpSZNqFiV5CtjPjXM7ZKDIoa227gU9Z25yZM+uk
-zmw7o7WKdKHC7UrlQ6GmiHbTfKgEy4fUUsJKIjLqobKSoEAoM3uoqDNSD0Hn5fD/
-5/u/c87Pf8+XwniTHg9c8Q6kbGhNetC7spwpvFi3o4rFlhZnA1VsCZnadMOMkFg0
-ZpgOG2B5JVdCQIW6qAMiAgigIkNZJposCwrmRY3XsQA4zOawxZbtVlANVmziNyya
-o0HY0Gj2P3zJ1AHgACeqGAoyrxOZx5KgE4SQBDBRNMrmShyGUAT0XNNlwANRppgK
-JE7kNE5GlENAobryKZ1OeKDLWON0hSBdAkiTMM8hXRaISgQAXNAmMVMpI+6r4qWK
-pphsdQ5LkxWGStwOuB/5F/DTIIeNxizHUq1Smi92nGjALXPiUZfbQ3D4jyGMDVOj
-PaQFFSRmG5bJBjhKqo7hKjn6IwR5jgM5LNkbNWIkbLiEKEsQ0OVeQyqoEskEQBFi
-ICmqxEOF01VJEyECIBcDVdJVVZMlRKAACBJUDYkYcggqRJOQCHXsdtgmu02LuqnU
-USLUaRsRU3HKY4St7usp8jBJXmb6tGR3DBhvavrf4djfMZNJCBklXZu6I0bmxMHp
-19J2rd65ZXjo3GTbrdCxUOuL5wWB8fe587hXp9YEL9l+z4yjHVu32eOdl4fKX2Zm
-rPpZ6639mPckfqbdt+Lr9/vy2MO0UN7NfuGof6RXT/6+MNU5vSmxXJqoPOxvNxtK
-lni+LV59wNex6oJvZf7TmlkHPzFvtSYlJTwI+9uaa/Z9aSkgd65v7mxY+mHr3L5I
-/cbxrPpH+SOFo4y/cnLBpTuVw+dPtpz4Ncn/8FmJQ8GunuxgwTI0P3qjrrUx+d2z
-kbWz54ReF6W8WQw+n81OHbi9rsn+tig4yqw/cmiscWnW1fTseO3d7sHmY5604/6R
-spOJ7c3x3wPCJEY=
-=gGdh
------END PGP MESSAGE-----
+g6Rib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgkCUbJB2oLpSHBd+zVWDLEf4P62aQWNz5m0hLW27Rb0oKp3BheWxvYWTFAvF7ImJvZHkiOnsia2V5Ijp7ImVsZGVzdF9raWQiOiIwMTIwOTAyNTFiMjQxZGE4MmU5NDg3MDVkZmIzNTU2MGNiMTFmZTBmZWI2NjkwNThkY2Y5OWI0ODRiNWI2ZWQxNmY0YTBhIiwiaG9zdCI6ImtleWJhc2UuaW8iLCJraWQiOiIwMTIwOTAyNTFiMjQxZGE4MmU5NDg3MDVkZmIzNTU2MGNiMTFmZTBmZWI2NjkwNThkY2Y5OWI0ODRiNWI2ZWQxNmY0YTBhIiwidWlkIjoiZmUyMGY3YmQxZmFlOWY2MDlkNmIyMTlmNzRlY2U0MDAiLCJ1c2VybmFtZSI6ImR5bGFkYW4ifSwic2VydmljZSI6eyJob3N0bmFtZSI6ImR5bGFkYW4ubWUiLCJwcm90b2NvbCI6Imh0dHBzOiJ9LCJ0eXBlIjoid2ViX3NlcnZpY2VfYmluZGluZyIsInZlcnNpb24iOjF9LCJjbGllbnQiOnsibmFtZSI6ImtleWJhc2UuaW8gZ28gY2xpZW50IiwidmVyc2lvbiI6IjEuMC45In0sImN0aW1lIjoxNDU0NjI5MjM5LCJleHBpcmVfaW4iOjUwNDU3NjAwMCwibWVya2xlX3Jvb3QiOnsiY3RpbWUiOjE0NTQ2MjkyMjYsImhhc2giOiI3MDZkMmU1ZTIzODZlMmJjMWY2ZjZhYWE4NGQwMjJiYjM0NDRmZGFiMGNlOWE5Y2FkNGYzMTRmYTIxNDAyYWJiZTg4NDVlMGM4NDU0Y2U0NDIxMjZkOWI2ZTlmMjhmMTk3ZDAzODZkYjI0YzQ5NjYwZjlhMWM1ODY2NzNhMzIxYiIsInNlcW5vIjozNjI3ODZ9LCJwcmV2IjoiMmRhN2IzNzFkZWRlYzRkOWY5NzEzM2VlMDM1YmUwNjI0NzMzYzk0NTUyNzBmODgwM2JjYmFkN2Q4NjczZTAxOCIsInNlcW5vIjoyMiwidGFnIjoic2lnbmF0dXJlIn2jc2lnxECUf65zVgDDFgMysNvzTSnj9Sl+yPDV4fsn1CA0Y9jmlNMDxzg7FNryxCem7HeZl66/MJS3H6cXVJzAVh+HbLkJqHNpZ190eXBlIKN0YWfNAgKndmVyc2lvbgE=
 
 And finally, I am proving ownership of this host by posting or
 appending to this document.
@@ -65,4 +52,3 @@ appending to this document.
 View my publicly-auditable identity here: https://keybase.io/dyladan
 
 ==================================================================
-
