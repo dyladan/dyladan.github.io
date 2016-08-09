@@ -3,6 +3,10 @@ The Naive Shuffle Algorithm
 
 ### Aside from saving time, why are programmers always told not to write code that has been written for us?
 
+Short answer: you don't know what you don't know.
+
+Long answer:
+
 Imagine you were writing an application in which you needed to shuffle a
 string. Instead of looking up the standard library function, you decided to
 implement it yourself because a shuffle is a simple piece of code and it would
