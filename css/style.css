@@ -5,6 +5,8 @@ body {
   font: 16px/1.5 "Open Sans", sans-serif;
   padding-top: 50px;
   padding-bottom: 70px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 nav > .container {
