@@ -27,11 +27,6 @@ p {
   margin: 0;
 }
 
-p + p {
-  text-indent: 1em;
-  margin-top: 0;
-}
-
 #content img {
   max-width: 100%;
 }
