@@ -24,7 +24,7 @@ nav > .container {
 
 /* https://webtypography.net/2.3.2 */
 p {
-  margin: 0;
+  margin: 1.5em 0;
 }
 
 #content img {
@@ -54,7 +54,7 @@ p {
 }
 
 img {
-  margin: 1.5em auto;
+  margin: auto;
   display: block;
 }
 
