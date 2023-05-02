@@ -1,5 +1,10 @@
 ---
-layout: home
+layout: page
+title: "About"
+permalink: /about/
+main_nav: true
+published: false
+# TODO update this page
 ---
 
 I'm a computer science student at Oakland University in Auburn Hills, MI. I started teaching myself to code in middle school and it has always been my primary focus but I don't like to limit myself just to that. I am a member of the [WMU Computer Club](https://cclub.cs.wmich.edu/) and a general hacking enthusiast.

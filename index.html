@@ -1,43 +1,88 @@
 ---
-layout: home
+layout: default
+pagination: 
+  enabled: true
 ---
+<div class="home">
 
-<div id="home"><img class="feature" src="//www.gravatar.com/avatar/76cd576f38884a402fbf01d2f95a132b?s=200"><h2 id="oakland-university-cs-undergraduate">Oakland University CS Undergraduate</h2>
-<p>Welcome to my website. Not everthing on this site is completely finished,
-including the site itself. What follows is a list of things I've been
-working on. Some of them are well thought out, others not so much.
-I try to only post things that are somewhat complete thoughts here, but
-if you want to see some of my works in progress feel free to browse my github.
-</p>
+<div class="site-header-container {% if site.cover %}has-cover{% endif %}" {% if site.cover %}style="background-image: url({{ site.cover | prepend: site.baseurl }});"{% endif %}>
+  <div class="scrim {% if site.cover %}has-cover{% endif %}">
+    <header class="site-header">
+      <h1 class="title">{{ site.title }}</h1>
+      {% if site.subtitle %}<p class="subtitle">{{ site.subtitle }}</p>{% endif %}
+    </header>
+  </div>
+</div>
 
+<div class="wrapper">
+<ul class="post-list">
+  {% for post in paginator.posts %}
+  <li>
+    <h2>
+      <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+    </h2>
+    <section class="post-excerpt" itemprop="description">
+      <p>{{ post.content | strip_html | truncatewords: 50 }}</p>
+    </section>
+    <section class="post-meta">
+      <div class="post-date">{{ post.date | date: "%B %-d, %Y" }}</div>
+      <div class="post-categories">
+      {% if post.categories.size > 0 %}in {% for cat in post.categories %}
+        {% if site.jekyll-archives %}
+        <a href="{{ site.baseurl }}/category/{{ cat }}">{{ cat | capitalize }}</a>{% if forloop.last == false %}, {% endif %}
+        {% else %}
+        <a href="{{ site.baseurl }}/posts/#{{ cat }}">{{ cat | capitalize }}</a>{% if forloop.last == false %}, {% endif %}
+        {% endif %}
+      {% endfor %}{% endif %}
+      </div>
+    </section>
+  </li>
+  {% if forloop.last == false %}
+  <hr>
+  {% endif %}
+  {% endfor %}
+</ul>
 
-<ul>
-    <li><h4 id="identity">Identity</h4>
-        <ul>
-            <li><a href="https://twitter.com/dyladan">@dyladan</a></li>
-            <li><a href="https://github.com/dyladan">https://github.com/dyladan</a></li>
-            <li><a href="keybase.txt">Keybase Proof</a></li>
-            <li><a href="public.asc">My public key</a></li>
-            <li><a href="/gopro/">My GoPro Collection</a></li>
-        </ul>
-    </li>
-</ul>
-<ul>
-    <li><h4 id="always-be-coding">Always Be Coding</h4>
-    <ul>
-        {% for post in site.categories.abc %}
-            <li><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></li>
-        {% endfor %}
-    </ul>
-    </li>
-</ul>
-<ul>
-    <li><h4 id="playground">Playground</h4>
-    <ul>
-        {% for post in site.categories.playground %}
-            <li><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></li>
-        {% endfor %}
-    </ul>
-    </li>
-</ul>
+<nav class="pagination" role="navigation">
+	<p>
+    {% if paginator.previous_page %}
+			{% if paginator.page == 2 %}
+			<a class="newer-posts" href="{{ site.baseurl }}{{ paginator.previous_page_path }}">
+        <span class="fa-stack fa-lg">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-angle-double-left fa-stack-1x fa-inverse"></i>
+        </span>
+      </a>
+			{% else %}
+			<a class="newer-posts" href="{{ site.baseurl }}{{ paginator.next_page_path }}">
+				<span class="fa-stack fa-lg">
+					<i class="fa fa-square fa-stack-2x"></i>
+					<i class="fa fa-angle-double-left fa-stack-1x fa-inverse"></i>
+				</span>
+			</a>
+			{% endif %}
+		{% else %}
+		<span class="fa-stack fa-lg">
+      <i class="fa fa-square fa-stack-2x"></i>
+      <i class="fa fa-angle-double-left fa-stack-1x fa-inverse"></i>
+    </span>
+		{% endif %}
+		<span class="page-number">Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
+		{% if paginator.next_page %}
+		<a class="newer-posts" href="{{ site.baseurl }}{{ paginator.next_page_path }}">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-square fa-stack-2x"></i>
+        <i class="fa fa-angle-double-right fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+		{% else %}
+		<span class="fa-stack fa-lg">
+      <i class="fa fa-square fa-stack-2x"></i>
+      <i class="fa fa-angle-double-right fa-stack-1x fa-inverse"></i>
+    </span>
+		{% endif %}
+	</p>
+</nav>
+
+</div>
 </div>

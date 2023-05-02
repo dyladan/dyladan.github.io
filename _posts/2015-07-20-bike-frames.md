@@ -24,7 +24,7 @@ and head tube angle. It's ok, I didn't really know what that
 means either. The easier way to think of it is the amount that
 the wheel "trails" behind the forks.
 
-![](/images/FGEOM.jpg)
+![](/assets/FGEOM.jpg)
 
 A general rule of thumb is that a large trail will give you
 more high speed stability but will not allow tight cornering.
