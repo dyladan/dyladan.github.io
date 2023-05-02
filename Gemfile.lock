@@ -64,7 +64,7 @@ PLATFORMS
   x86_64-darwin-19
 
 DEPENDENCIES
-  jekyll
+  jekyll (~> 4.3)
 
 BUNDLED WITH
-   2.2.9
+   2.4.12
