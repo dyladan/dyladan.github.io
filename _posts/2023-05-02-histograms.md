@@ -2,7 +2,6 @@
 layout: post
 title:  "Why Histograms?"
 date:   2023-05-02 12:00:00
-author: Daniel Dyla
 categories: Metrics
 tags:	metrics opentelemetry
 # cover:  "/assets/instacode.png"
