@@ -45,6 +45,7 @@ It is important to know that this is an *estimation* and could be off by as much
 
 One important property of histograms is that they are *aggregatable*, meaning that as long as the bucket boundaries line up, an arbitrary number of histograms can be combined into a single histogram with no loss of data or precision.
 This means that an arbitrary number of hosts can report histogram data structures to a server, which can aggregate and compute quantiles from all of them as if they were reported by a single host.
+By collecting histograms from 1 or many hosts over a long period of time, developers can gain a strong understanding of how their data is distributed and how that distribution changes over time.
 
 # Summaries
 
