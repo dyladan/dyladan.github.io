@@ -68,6 +68,8 @@ jekyll-archives:
 
 # Category descriptions (for archive pages)
 descriptions:
+  - cat: Metrics
+    desc: Thoughts on metrics as they relate to OpenTelemetry and distributed tracing
   - cat: abc
     desc: Always Be Coding
 
