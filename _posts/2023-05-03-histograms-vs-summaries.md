@@ -3,7 +3,7 @@ layout: post
 title: Histograms vs Summaries
 date: 2023-05-03 18:03 -0400
 categories: Histograms
-tags:	metrics opentelemetry histograms
+tags:	metrics opentelemetry prometheus histograms
 ---
 
 In many ways, prometheus histograms and summaries appear quite similar.
