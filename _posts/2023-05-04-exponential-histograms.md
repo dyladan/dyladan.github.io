@@ -50,7 +50,7 @@ Because of this, histograms with differing scale factors can be normalized to wh
 
 # Error rate
 
-The error rate of a histogram is defined as the average relative error when estimating the value of a particular-ranked data point. This is important because it is how φ-quantiles are estimated. In a histogram with x data points, the nth percentile is the data point at rank `n / 100 * x`. For an example of this calculation, see my previous post [*Why Histograms*]({% post_url 2023-05-03-why-histograms %}). When estimating ɸ-quantiles it is very important to know the expected relative error rates and maximum relative error rates so that you can effectively monitor your SLOs.
+The error rate of a histogram is defined as the average relative error when estimating the value of a particular-ranked data point. This is important because it is how φ-quantiles are estimated. In a histogram with x data points, the nth percentile is the data point at rank `n / 100 * x`. For an example of this calculation, see my previous post [*Why Histograms*]({% post_url 2023-05-02-why-histograms %}). When estimating ɸ-quantiles it is very important to know the expected relative error rates and maximum relative error rates so that you can effectively monitor your SLOs.
 
 When using linear interpolation, the expected relative error is half the bucket width divided by the bucket midpoint. Because the relative error is the same across all buckets, we can use the first bucket with the upper bound of the base to make the math easy. An example is shown below using a scale of 3.
 
