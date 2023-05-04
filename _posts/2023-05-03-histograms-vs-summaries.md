@@ -22,8 +22,8 @@ Each bin counts the number of requests that fall within its range.
 <script>
   new chartXkcd.Bar(document.querySelector('.fig-1'), {
     title: 'Response Time (1260 requests)',
-    yLabel: 'Milliseconds',
-    xLabel: 'Requests',
+    xLabel: 'Milliseconds',
+    yLabel: 'Requests',
     data: {
       labels: ['< 10', '< 20', '< 30', '< 50', '< 75', '< 100', '< 200', '< 300', '< 500', '< 750', '< 1000', '1001+'],
       datasets: [{
@@ -87,3 +87,5 @@ Until then, here are some talks I found helpful:
 - [PromCon EU 2022 - Native Histograms in Prometheus - Ganesh Vernekar](https://promcon.io/2022-munich/talks/native-histograms-in-prometheus/)
 - [Kubecon EU 2023 - Prometheus Native Histograms in Production - Björn Rabenstein, Grafana Labs](https://www.youtube.com/watch?v=TgINvIK9SYc)
 - [Using OpenTelemetry’s Exponential Histograms in Prometheus - Ruslan Kovalov & Ganesh Vernekar](https://www.youtube.com/watch?v=W2_TpDcess8)
+
+edit: mixed up the x and y axis labels on the histogram
