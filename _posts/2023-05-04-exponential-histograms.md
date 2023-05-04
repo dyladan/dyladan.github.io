@@ -60,11 +60,11 @@ scale = 3
 base  = 1.090508
 
 relative error = (bucketWidth / 2) / bucketMidpoint
-			   = ((base - 1) / 2) / ((base + 1) / 2)
-			   = (base - 1) / (base + 1)
-			   = (1.090508 - 1) / (1.090508 + 1)
-			   = 0.04329
-			   = 4.329%
+               = ((base - 1) / 2) / ((base + 1) / 2)
+               = (base - 1) / (base + 1)
+               = (1.090508 - 1) / (1.090508 + 1)
+               = 0.04329
+               = 4.329%
 ```
 
 # Choosing a scale
