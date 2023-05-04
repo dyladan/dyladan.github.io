@@ -42,6 +42,7 @@ We know there are 1260 requests, so the 1134th-ranked (`1260 * .90`) request rep
 We can then calculate that the request would fall in the 8th bucket (`300 <= x < 500`) by summing the bucket counts until we exceed that rank.
 Finally, using relative rank within the bucket of 24 (`1134 - 1110`), we can estimate the p90 value to be 360ms (`300 + ((24 / 80) * (500 - 300))`) using linear interpolation.
 It is important to know that this is an *estimation* and could be off by as much as 60ms (`360 - 300`), a relative error of 17% (`60 / 360`).
+This error can be mitigated by configuring more and smaller buckets around your SLO values, but never eliminated.
 
 One important property of histograms is that they are *aggregatable*, meaning that as long as the bucket boundaries line up, an arbitrary number of histograms can be combined into a single histogram with no loss of data or precision.
 This means that an arbitrary number of hosts can report histogram data structures to a server, which can aggregate and compute quantiles from all of them as if they were reported by a single host.
@@ -64,11 +65,25 @@ By comparison, the summary is only a single timeseries for the precomputed `p99`
 Second, they have very low and configurable relative error rates.
 The in the histogram example above, we had a potential relative error of 17% where our summary is guaranteed to be within ± 0.5% accuracy.
 
-# Which to choose?
+# So which should you choose?
 
-TODO
+The disappointing answer is "it depends," and there is no one-size-fits-all solution.
+If you need to aggregate data from many sources, then histograms may be the right choice.
+If you are collecting a large number of separate metrics with very strict SLOs, or your prometheus server is particularly resource constrained, then maybe summaries are the right choice for you.
+Maybe your ideal solution is a hybrid with some histograms for flexible querying and some summaries.
+Only you can know the ins and outs of your own system and design an observability solution around it that is accurate and flexible.
+The key is knowing the strengths and limitations of the data structure you're using so you can make informed decisions.
 
-- histogram when aggregating from many sources
-- summary for strict SLOs known in advance
-- mitigate histogram error rates by configuring multiple smaller buckets around your SLOs
-- native histograms naturally have low relative error rates and reduced transmission and server cost in the form of reduced number of timeseries
+# Bonus round: native histograms
+
+I'm planning a longer post on this so I'll keep this short, but many of the key disadvantages of histograms are mitigated by native histograms, called exponential histograms in OpenTelemetry.
+Available in Prometheus as an experimental feature since v2.40.0, and stable in the OpenTelemetry specification as of v1.17.0, native histograms enable very efficient data collection and transmission, fewer, and a constant number of, timeseries created per histogram, and very low relative error rates.
+They achieve these and other benefits by defining buckets automatically according to a scale factor and resizing intelligently as needed.
+If you're not happy with the state of your current histograms and summaries, I encourage you to give native histograms a try.
+As of this writing there are no official Prometheus docs on native histograms, but if you stay tuned I plan to add a thorough explanation of them in the coming days.
+
+Until then, here are some talks I found helpful:
+
+- [PromCon EU 2022 - Native Histograms in Prometheus - Ganesh Vernekar](https://promcon.io/2022-munich/talks/native-histograms-in-prometheus/)
+- [Kubecon EU 2023 - Prometheus Native Histograms in Production - Björn Rabenstein, Grafana Labs](https://www.youtube.com/watch?v=TgINvIK9SYc)
+- [Using OpenTelemetry’s Exponential Histograms in Prometheus - Ruslan Kovalov & Ganesh Vernekar](https://www.youtube.com/watch?v=W2_TpDcess8)
