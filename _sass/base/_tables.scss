@@ -8,6 +8,7 @@ table {
 
 th {
   border-bottom: 1px solid darken($base-border-color, 15%);
+  border-right: 1px solid $base-border-color;
   font-weight: 600;
   padding: $small-spacing 0;
   text-align: left;
@@ -15,11 +16,20 @@ th {
 
 td {
   // border-bottom: $base-border; // removed to fix gist embeds
-  padding: $small-spacing 0;
+  border-right: 1px solid $base-border-color;
+}
+
+td:last-child, th:last-child {
+  border-right: none;
+}
+
+.gist-data td {
+  border-right: none;
 }
 
 tr,
 td,
 th {
+  padding: 0 $small-spacing;
   vertical-align: middle;
 }
