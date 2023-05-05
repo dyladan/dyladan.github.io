@@ -20,11 +20,11 @@ In OpenTelemetry exponential histograms, buckets are calculated automatically fr
 
 The most important and most fundamental part of an exponential histogram is also one of the trickiest to understand, the scale factor. From the scale factor, bucket boundaries, and by extension resolution, range, and error rates, are derived. The first step is to calculate the histogram base.
 
-The base is a constant derived directly from the scale using the equation `2 ^ (2 ^ -scale)`. For example, given a scale of 3, the base can be calculated as `2^(2^-3) ~= 1.080508`. Because the calculation depends on the power of the negative scale, as the scale grows, the base shrinks and vice versa. As will be shown later, this is the fundamental reason that a greater scale factor results in smaller buckets and a higher resolution histogram.
+The base is a constant derived directly from the scale using the equation `2 ^ (2 ^ -scale)`. For example, given a scale of 3, the base can be calculated as `2^(2^-3) ~= 1.090508`. Because the calculation depends on the power of the negative scale, as the scale grows, the base shrinks and vice versa. As will be shown later, this is the fundamental reason that a greater scale factor results in smaller buckets and a higher resolution histogram.
 
 # Bucket calculation
 
-Given a scale factor and its resulting base, we can calculate every possible bucket in the histogram. From the base, the upper bound of each bucket at index `i` is defined to be `base ^ (i + 1)`, with the first bucket lower boundary of 1. Because of this, the upper boundary of the first bucket at index 0 is also exactly the base. For now, we will only consider nonnegative indices, but negative indexed buckets are also possible and define all buckets between 0 and 1. Keeping with our example using a scale of 3 and resulting base of 1.080508, the third bucket at index 2 has an upper bound of `1.080508^(2+1) = 1.26149`. The following table shows upper bounds for the first 10 buckets of a few different scale factors:
+Given a scale factor and its resulting base, we can calculate every possible bucket in the histogram. From the base, the upper bound of each bucket at index `i` is defined to be `base ^ (i + 1)`, with the first bucket lower boundary of 1. Because of this, the upper boundary of the first bucket at index 0 is also exactly the base. For now, we will only consider nonnegative indices, but negative indexed buckets are also possible and define all buckets between 0 and 1. Keeping with our example using a scale of 3 and resulting base of 1.090508, the third bucket at index 2 has an upper bound of `1.090508^(2+1) = 1.29684`. The following table shows upper bounds for the first 10 buckets of a few different scale factors:
 
 | index | scale -1 | scale 0 | scale 1     | scale 3     |
 | ----- | -------- | ------- | ----------- | ----------- |
@@ -82,3 +82,5 @@ Fortunately, if you are using OpenTelemetry, scale choice is largely done for yo
 # OpenTelemetry and Prometheus
 
 Compatibility between OpenTelemetry and Prometheus is probably a topic large enough for its own post, and I may write that post, but for now it is enough to state that for all practical purposes, OpenTelemetry exponential histograms are 1:1 compatible with Prometheus native histograms. Scale calculations, bucket boundaries, error rates, zero buckets, etc are all the same. For more information, I recommend you watch this talk given by  Ruslan Vovalov and Ganesh Vernekar: [Using OpenTelemetry’s Exponential Histograms in Prometheus](https://www.youtube.com/watch?v=W2_TpDcess8)
+
+edit: Fix a typo in the scale factor and bucket calculations. Thanks [@pirgeo](https://github.com/pirgeo)!
