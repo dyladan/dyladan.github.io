@@ -26,19 +26,19 @@ The base is a constant derived directly from the scale using the equation `2 ^ (
 
 Given a scale factor and its resulting base, we can calculate every possible bucket in the histogram. From the base, the upper bound of each bucket at index `i` is defined to be `base ^ (i + 1)`, with the first bucket lower boundary of 1. Because of this, the upper boundary of the first bucket at index 0 is also exactly the base. For now, we will only consider nonnegative indices, but negative indexed buckets are also possible and define all buckets between 0 and 1. Keeping with our example using a scale of 3 and resulting base of 1.090508, the third bucket at index 2 has an upper bound of `1.090508^(2+1) = 1.29684`. The following table shows upper bounds for the first 10 buckets of a few different scale factors:
 
-| index | scale -1 | scale 0 | scale 1     | scale 3     |
-| ----- | -------- | ------- | ----------- | ----------- |
-| n/a   | **1**    | **1**   | **1**       | **1**       |
-| 0     | **4**    | 2       | 1.414213562 | 1.090507733 |
-| 1     | **16**   | **4**   | 2           | 1.189207115 |
-| 2     | 64       | 8       | 2.828427125 | 1.296839555 |
-| 3     | 256      | **16**  | **4**       | 1.414213562 |
-| 4     | 1024     | 32      | 5.656854249 | 1.542210825 |
-| 5     | 4096     | 64      | 8           | 1.681792831 |
-| 6     | 16384    | 128     | 11.3137085  | 1.834008086 |
-| 7     | 65536    | 256     | 16          | **2**       |
-| 8     | 262144   | 512     | 22.627417   | 2.181015465 |
-| 9     | 1048576  | 1024    | 32          | 2.37841423  |
+| index | scale -1 | scale 0 | scale 1 | scale 3 |
+| ----- | -------- | ------- | ------- | ------- |
+| n/a   | **1**    | **1**   | **1**   | **1**   |
+| 0     | **4**    | 2       | 1.4142  | 1.0905  |
+| 1     | **16**   | **4**   | 2       | 1.1892  |
+| 2     | 64       | 8       | 2.8284  | 1.2968  |
+| 3     | 256      | **16**  | **4**   | 1.4142  |
+| **4** | 1024     | 32      | 5.6569  | 1.5422  |
+| 5     | 4096     | 64      | 8       | 1.6818  |
+| 6     | 16384    | 128     | 11.3137 | 1.8340  |
+| 7     | 65536    | 256     | **16**  | 2       |
+| 8     | 262144   | 512     | 22.6274 | 2.1810  |
+| 9     | 1048576  | 1024    | 32      | 2.3784  |
 
 I've bolded some of the values here to show an important property of exponential histograms called *perfect subsetting*.
 
