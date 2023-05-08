@@ -63,7 +63,7 @@ In our histogram example above, it is represented as 12 separate timeseries: 1 c
 That is for a single, relatively modest, histogram with no attributes to multiply cardinality.
 By comparison, the summary is only a single timeseries for the precomputed `p99` value.
 Second, they have very low and configurable relative error rates.
-The in the histogram example above, we had a potential relative error of 17% where our summary is guaranteed to be within ± 0.5% accuracy.
+In the histogram example above, we had a potential relative error of 17% where our summary is guaranteed to be within ± 0.5% accuracy.
 
 # So which should you choose?
 
