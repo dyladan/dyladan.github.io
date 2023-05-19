@@ -96,4 +96,7 @@ Until then, here are some talks I found helpful:
 - [Kubecon EU 2023 - Prometheus Native Histograms in Production - Björn Rabenstein, Grafana Labs](https://www.youtube.com/watch?v=TgINvIK9SYc)
 - [Using OpenTelemetry’s Exponential Histograms in Prometheus - Ruslan Kovalov & Ganesh Vernekar](https://www.youtube.com/watch?v=W2_TpDcess8)
 
-edit: mixed up the x and y axis labels on the histogram
+### Edits
+
+- Mixed up the x and y axis labels on the histogram
+- Incorporate review feedback from OpenTelemetry blog

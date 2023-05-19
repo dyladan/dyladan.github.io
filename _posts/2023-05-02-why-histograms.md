@@ -103,3 +103,7 @@ You need to be sure your observability backend is able to query and analyze a la
 If you are sampling your logs and traces or employing a data retention policy that ages data out, you need to be sure those things are not affecting derived metrics, or that they are properly re-weighted, or you risk not being able to accurately asses your SLOs.
 Depending on your sampling strategy, it may not even be possible.
 Using histograms is a way to avoid these subtle problems if they apply to you.
+
+### Edits
+
+- Incorporate review feedback from OpenTelemetry blog
