@@ -3,13 +3,14 @@ layout: post
 title: Histograms vs Summaries
 date: 2023-05-03 18:03 -0400
 categories: Histograms
+spelling: cSpell:ignore Dyla quantile quantiles timeseries aggregatable Xkcd Ruslan Kovalov Björn Rabenstein Ganesh Vernekar Kubecon
 tags:	metrics opentelemetry prometheus histograms
 ---
 
-In many ways, prometheus histograms and summaries appear quite similar.
+In many ways, histograms and summaries appear quite similar.
 They both roll up many data points into a data structure for efficient processing, transmission, and storage.
 They can also both be used to track arbitrary quantiles such as the median or p99 of your data.
-So the question is raised when to use a summary and when to use a histogram.
+So how do they differ? Let's dive in.
 
 # Histograms
 
@@ -46,7 +47,7 @@ This error can be mitigated by configuring more and smaller buckets around your 
 
 One important property of histograms is that they are *aggregatable*, meaning that as long as the bucket boundaries line up, an arbitrary number of histograms can be combined into a single histogram with no loss of data or precision.
 This means that an arbitrary number of hosts can report histogram data structures to a server, which can aggregate and compute quantiles from all of them as if they were reported by a single host.
-By collecting histograms from 1 or many hosts over a long period of time, developers can gain a strong understanding of how their data is distributed and how that distribution changes over time.
+By collecting histograms from 1 or more hosts over a long period of time, developers can gain a strong understanding of how their data is distributed and how that distribution changes over time.
 
 # Summaries
 
@@ -59,7 +60,7 @@ Another disadvantage is that if you cannot query arbitrary φ-quantiles, only th
 
 Given these disadvantages, summaries do have some advantages.
 First, they trade off a small performance penalty on the client for a significant reduction in transmission, storage, and server processing cost.
-In our histogram example above, it is represented as 12 separate timeseries: 1 counter for each bucket + 1 bucket for out of range values + a total sum of all values.
+In our histogram example above, the distribution is represented as 12 separate timeseries: 1 counter for each bucket + 1 bucket for out of range values + a total sum of all values.
 That is for a single, relatively modest, histogram with no attributes to multiply cardinality.
 By comparison, the summary is only a single timeseries for the precomputed `p99` value.
 Second, they have very low and configurable relative error rates.
@@ -69,17 +70,24 @@ In the histogram example above, we had a potential relative error of 17% where o
 
 The disappointing answer is "it depends," and there is no one-size-fits-all solution.
 If you need to aggregate data from many sources, then histograms may be the right choice.
-If you are collecting a large number of separate metrics with very strict SLOs, or your prometheus server is particularly resource constrained, then maybe summaries are the right choice for you.
-Maybe your ideal solution is a hybrid with some histograms for flexible querying and some summaries.
-Only you can know the ins and outs of your own system and design an observability solution around it that is accurate and flexible.
-The key is knowing the strengths and limitations of the data structure you're using so you can make informed decisions.
+If you are collecting a large number of separate metrics with very strict SLOs, or your Prometheus server is particularly resource constrained, then maybe summaries are the right choice for you.
+Maybe your ideal solution is a hybrid with some histograms for flexible querying and some summaries for high-accuracy, low-cost alerting.
+Only you can know the ins and outs of your own system and design an observability solution around it that is accurate and flexible and fits your particular needs.
+The key is knowing the strengths and limitations of the available tools so you can make informed decisions.
 
-# Bonus round: native histograms
+# Bonus round: native/exponential histograms
 
-I'm planning a longer post on this so I'll keep this short, but many of the key disadvantages of histograms are mitigated by native histograms, called exponential histograms in OpenTelemetry.
-Available in Prometheus as an experimental feature since v2.40.0, and stable in the OpenTelemetry specification as of v1.17.0, native histograms enable very efficient data collection and transmission, fewer, and a constant number of, timeseries created per histogram, and very low relative error rates.
-They achieve these and other benefits by defining buckets automatically according to a scale factor and resizing intelligently as needed.
-If you're not happy with the state of your current histograms and summaries, I encourage you to give native histograms a try.
+I'm planning a longer post on this so I'll keep this short, but many of the key disadvantages of histograms are mitigated by exponential histograms, called native histograms in Prometheus.
+They are available in Prometheus as an experimental feature since v2.40.0, and stable in the OpenTelemetry specification as of v1.17.0.
+Exponential histograms come with several advantages:
+
+- Very efficient data collection and transmission
+- A constant number of timeseries created (and fewer of them) per histogram
+- Very low relative error rates
+- Automatic bucket boundaries, making them simpler to configure and use
+
+These advantages are accomplished by defining bucket boundaries according to a scale factor, intelligently resizing buckets as your distribution evolves, instead of the traditional method of defining explicit buckets.
+If you're not happy with the state of your current histograms and summaries, I encourage you to give exponential histograms a try.
 As of this writing there are no official Prometheus docs on native histograms, but if you stay tuned I plan to add a thorough explanation of them in the coming days.
 
 Until then, here are some talks I found helpful:

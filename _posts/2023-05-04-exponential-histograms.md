@@ -3,6 +3,7 @@ layout: post
 title: Exponential Histograms
 date: 2023-05-04 19:00 -0400
 categories: Histograms
+spelling: cSpell:ignore Dyla quantiles subsetting Ruslan Vovalov Ganesh Vernekar OTEP oertl pirgeo
 tags:	metrics opentelemetry prometheus histograms
 ---
 
